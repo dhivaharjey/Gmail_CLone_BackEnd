@@ -1,6 +1,6 @@
 import axios from "axios";
-
-// dotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 const API_URL = process.env.URL;
 const API_GMAIL = async () => {
