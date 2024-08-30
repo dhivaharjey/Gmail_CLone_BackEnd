@@ -45,7 +45,7 @@ export const getEmails = async (req, res) => {
 export const moveEmailsToTrash = async (req, response) => {
   try {
     await Email.updateMany(
-      { _id: { $in: req.body }, user: req.user.id }, // Only update emails for the authenticated user
+      { _id: { $in: req.body }, user: req.user.id },
       { $set: { trash: true, starred: false, snooze: false, type: "" } }
     );
     return response.status(200).json("Emails Deleted Successfully");
@@ -57,7 +57,7 @@ export const moveEmailsToTrash = async (req, response) => {
 export const toggleSnoozeddEmails = async (req, response) => {
   try {
     await Email.updateOne(
-      { _id: req.body.id, user: req.user.id }, // Only update email for the authenticated user
+      { _id: req.body.id, user: req.user.id },
       { $set: { snooze: req.body.value } }
     );
     return response.status(200).json("Email is Snoozed");
@@ -68,7 +68,7 @@ export const toggleSnoozeddEmails = async (req, response) => {
 export const toggleStarredEmails = async (req, response) => {
   try {
     await Email.updateOne(
-      { _id: req.body.id, user: req.user.id }, // Only update email for the authenticated user
+      { _id: req.body.id, user: req.user.id },
       { $set: { starred: req.body.value } }
     );
     return response.status(200).json("Email is Starred ");
