@@ -10,7 +10,7 @@ export const sendResetEmail = async (email, token) => {
       pass: process.env.PASS,
     },
   });
-  const resetLink = `${process.env.FRONT_END_URL}reset-password/${token}`;
+  const resetLink = `${process.env.FRONT_END_URL}/reset-password/${token}`;
   const mailOptions = {
     from: process.env.USER,
     to: email,
