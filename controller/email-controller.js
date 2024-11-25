@@ -106,8 +106,8 @@ export const sendEmail = async (req, res) => {
     const mailOptions = {
       from: user.email,
       name: user.userName,
-      to,
-      subject,
+      to: to,
+      subject: subject,
       text: body,
       html: `<p>${body}</p>`,
     };
